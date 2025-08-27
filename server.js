@@ -9,7 +9,7 @@ const server = fastify({
 })
 
 await fastify.register(cors, {
-  origin: "http://localhost:5173"  // em dev
+  origin: "*"
 });
 
 
