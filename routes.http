@@ -1,0 +1,15 @@
+POST http://localhost:8080/carnes 
+Content-Type: application/json
+
+{
+    "corte":"acém",
+    "nome":"Hambúrguer de acém",
+    "porcao": 6,
+    "tempo": 30,
+    "ingredientes": ["1kg de carne moída", "1 cebola picada", "Cebolinha a gosto", "4 dentes de alho", "sal a gosto", "pimenta do reino a gosto"],
+    "receita":["Misture todos os ingredientes, amasse bem e forme bolinhas, depois achate para ter a forma de hambúrguer.", "Frite numa frigideira antiaderente, coloque uma colher de óleo pois a carne não tem gordura."]
+}
+
+###
+
+GET http://localhost:8080/receitas
