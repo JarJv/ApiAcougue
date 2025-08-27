@@ -1,9 +1,17 @@
 import fastify from 'fastify'
+import cors from "@fastify/cors";
 import Acougue from './database-postgres.js'
 
 const dbRules = new Acougue()
 
-const server = fastify()
+const server = fastify({
+    logger: true
+})
+
+await fastify.register(cors, {
+  origin: "http://localhost:5173"  // em dev
+});
+
 
 server.post("/carnes", async(req, res)=>{
     const {corte, nome, porcao, tempo, ingredientes, receita} = req.body
@@ -20,8 +28,8 @@ server.post("/carnes", async(req, res)=>{
     return res.status(200).send()
 })
 
-server.get("/cortes/:corte", async(req)=>{
-    const corte = req.params.corte
+server.get("/cortes/:id", async(req)=>{
+    const corte = req.params.id
     const receitas = await dbRules.listCorte(corte)
 
     return receitas
