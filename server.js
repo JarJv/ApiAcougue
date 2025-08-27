@@ -35,5 +35,6 @@ server.get("/receitas", async(req)=>{
 })
 
 server.listen({
+    host: '0.0.0.0',
     port:process.env.PORT ?? 8080,
 })
